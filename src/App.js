@@ -1,9 +1,11 @@
 import React from 'react';
 
+import Header from './components/Header'
+
 function App() {
   return (
     <div className="App">
-      <h2>Jake's App</h2>
+      <Header message={"REACT IMAGE GALLERY APP"}/>
     </div>
   );
 }
