@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-function SearchForm (props) {
-  return (
-    console.log('SearchForm exists');
-  );
+class SearchForm extends Component {
+  //Purpose: to display the search input and button
+  //Should contain its own local state
+  render() {
+    return (
+      console.log('SearchForm exists');
+    );
+  }
 }
 
 export default SearchForm;
