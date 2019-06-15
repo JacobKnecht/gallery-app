@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import SearchForm from './SearchForm'
+import SearchForm from './SearchForm';
+import Nav from './Nav';
 
 class Header extends Component {
   //Purpose: to store app title, logo, nav and search bar
@@ -10,6 +11,7 @@ class Header extends Component {
       <header>
         {this.props.message}
         <SearchForm />
+        <Nav />
       </header>
     );
   }
