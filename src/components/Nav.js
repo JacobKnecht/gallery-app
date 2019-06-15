@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 
 class Nav extends Component {
   //Purpose: render navigation menu
@@ -6,7 +7,7 @@ class Nav extends Component {
   //Should receive props from App component
   render() {
     return (
-      
+
     );
   }
 }
