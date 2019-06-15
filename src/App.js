@@ -4,9 +4,11 @@ import Header from './components/Header'
 
 function App() {
   return (
-    <div className="container">
-      <Header message={"REACT IMAGE GALLERY APP"} />
-    </div>
+    <BrowserRouter>
+      <div className="container">
+        <Header message={"REACT IMAGE GALLERY APP"} />
+      </div>
+    </BrowserRouter>
   );
 }
 
