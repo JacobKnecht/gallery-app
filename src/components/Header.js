@@ -9,9 +9,9 @@ class Header extends Component {
   render() {
     return (
       <header>
-        {this.props.message}
         <SearchForm />
         <Nav />
+        {this.props.title}
       </header>
     );
   }
