@@ -5,6 +5,7 @@ class Nav extends Component {
   //Purpose: render navigation menu
   //Should be stateless component
   //Should receive props from App component
+  //Need to add routes for each topic category
   render() {
     return (
       <nav className="main-nav">
