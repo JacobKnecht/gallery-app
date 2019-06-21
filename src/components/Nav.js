@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class Nav extends Component {
   //Purpose: render navigation menu
@@ -14,7 +14,6 @@ class Nav extends Component {
           <li><NavLink to={`/${this.props.topic2}`}>{this.props.topic2}</NavLink></li>
           <li><NavLink to={`/${this.props.topic3}`}>{this.props.topic3}</NavLink></li>
         </ul>
-
       </nav>
     );
   }
