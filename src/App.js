@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import Gallery from './components/Gallery';
 import apiKey from './config.js';
@@ -39,15 +39,12 @@ class App extends Component {
 
   performSearch = search => {
     console.log(search);
+    this.setState({ searchTopic: search });
     fetch(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${search}&extras=url_o&per_page=24&format=json&nojsoncallback=1`)
       .then(response => response.json())
-      .then(responseData =>
-        this.setState({
-          images: responseData.photos.photo,
-          searchTopic: search
-        })
-      )
+      .then(responseData => this.setState({ images: responseData.photos.photo }))
       .catch(error => console.log('There was an error fetching the data...'));
+    console.log(this.state.searchTopic);
   }
 
   render() {
@@ -61,12 +58,7 @@ class App extends Component {
             topic2={this.state.topic2}
             topic3={this.state.topic3}
           />
-          <Route
-            exact path="/"
-            render={ () =>
-              <Gallery title={this.state.searchTopic} images={this.state.images} /> 
-            }
-          />
+          <Route exact path="/" render={ () => <Redirect to={`/${this.state.topic1}`} /> } />
           <Route
             path={`/${this.state.topic1}`}
             render={ () =>
@@ -83,6 +75,12 @@ class App extends Component {
             path={`/${this.state.topic3}`}
             render={ () =>
               <Gallery title={this.state.topic3} images={this.state.topic3Images} />
+            }
+          />
+          <Route
+            path={`/${this.state.searchTopic}`}
+            render={ () =>
+              <Gallery title={this.state.searchTopic} images={this.state.images} />
             }
           />
         </div>
