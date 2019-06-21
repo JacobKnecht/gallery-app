@@ -7,7 +7,11 @@ class GalleryItem extends Component {
   render() {
     return (
       this.props.images.map(image => {
-        return <li>{image}</li>;
+        return (
+          <li>
+            <img src={image.url_o} alt={image.title} />
+          </li>
+        );
       })
     );
   }
