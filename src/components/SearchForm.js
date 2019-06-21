@@ -15,6 +15,7 @@ class SearchForm extends Component {
   //resets search input on submission
   handleSubmit = event => {
     event.preventDefault();
+    this.props.onSearch(this.state.searchText);
     event.currentTarget.reset();
   }
 
