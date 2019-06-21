@@ -10,9 +10,9 @@ class Nav extends Component {
     return (
       <nav className="main-nav">
         <ul>
-          <li><NavLink to="/cats">Cats</NavLink></li>
-          <li><NavLink to="/dogs">Dogs</NavLink></li>
-          <li><NavLink to="/computers">Computers</NavLink></li>
+          <li><NavLink to={`/${this.props.topic1}`}>{this.props.topic1}</NavLink></li>
+          <li><NavLink to={`/${this.props.topic2}`}>{this.props.topic2}</NavLink></li>
+          <li><NavLink to={`/${this.props.topic3}`}>{this.props.topic3}</NavLink></li>
         </ul>
 
       </nav>
