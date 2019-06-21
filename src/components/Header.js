@@ -10,7 +10,11 @@ class Header extends Component {
     return (
       <header>
         <SearchForm onSearch={this.props.onSearch} />
-        <Nav />
+        <Nav
+          topic1={this.props.topic1}
+          topic2={this.props.topic2}
+          topic3={this.props.topic3} 
+        />
         {this.props.title}
       </header>
     );
