@@ -9,7 +9,7 @@ class Header extends Component {
   render() {
     return (
       <header>
-        <SearchForm />
+        <SearchForm onSearch={this.props.onSearch} />
         <Nav />
         {this.props.title}
       </header>
