@@ -8,7 +8,7 @@ class Gallery extends Component {
   render() {
     return (
       <div className="photo-container">
-        <h2>Results</h2>
+        <h2>{this.props.title} Images</h2>
         <ul>
           {
             this.props.images.map(image => {
