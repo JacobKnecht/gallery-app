@@ -6,13 +6,9 @@ class GalleryItem extends Component {
   //Should receive props from App component
   render() {
     return (
-      this.props.images.map(image => {
-        return (
-          <li>
-            <img src={image.url_o} alt={image.title} />
-          </li>
-        );
-      })
+      <li>
+        <img src={this.props.source} alt={this.props.alt} />
+      </li>
     );
   }
 }
