@@ -10,7 +10,11 @@ class Gallery extends Component {
       <div className="photo-container">
         <h2>Results</h2>
         <ul>
-          <GalleryItem images={this.props.images}/>
+          {
+            this.props.images.map(image => {
+              return <GalleryItem key={image.id} source={image.url_o} alt={image.title} />
+            })
+          }
         </ul>
       </div>
     );
