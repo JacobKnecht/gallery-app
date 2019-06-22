@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 
 class SearchForm extends Component {
   //Purpose: to display the search input and button
@@ -16,6 +17,7 @@ class SearchForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.props.onSearch(this.state.searchText);
+    this.props.history.push(`/${this.searchTag.value}`);
     event.currentTarget.reset();
   }
 
@@ -27,6 +29,7 @@ class SearchForm extends Component {
           name="search"
           onChange={this.onSearchChange}
           placeholder="Search"
+          ref={ (input) => this.searchTag = input }
         />
         <button type="submit">
           <svg
@@ -45,4 +48,4 @@ class SearchForm extends Component {
   }
 }
 
-export default SearchForm;
+export default withRouter(SearchForm);
