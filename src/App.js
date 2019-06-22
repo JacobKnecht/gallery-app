@@ -39,12 +39,11 @@ class App extends Component {
 
   performSearch = search => {
     console.log(search);
-    this.setState({ searchTopic: search });
     fetch(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${search}&extras=url_o&per_page=24&format=json&nojsoncallback=1`)
       .then(response => response.json())
-      .then(responseData => this.setState({ images: responseData.photos.photo }))
+      .then(responseData => this.setState({ images: responseData.photos.photo, searchTopic: search }))
+      .then(responseData => console.log(this.props))
       .catch(error => console.log('There was an error fetching the data...'));
-    console.log(this.state.searchTopic);
   }
 
   render() {
