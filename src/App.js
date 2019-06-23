@@ -81,7 +81,7 @@ class App extends Component {
               }
             />
             <Route
-              path={`/${this.state.searchTopic}`}
+              exact path={`/${this.state.searchTopic}`}
               render={ () =>
                 <Gallery title={this.state.searchTopic} images={this.state.images} />
               }
