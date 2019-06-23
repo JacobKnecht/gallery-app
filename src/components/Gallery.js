@@ -12,7 +12,13 @@ class Gallery extends Component {
         <ul>
           {
             this.props.images.map(image => {
-              return <GalleryItem key={image.id} source={image.url_o} alt={image.title} />
+              return (
+                <GalleryItem
+                  key={image.id}
+                  source={`https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`}
+                  alt={image.title} 
+                />
+              )
             })
           }
         </ul>
