@@ -1,7 +1,8 @@
 body {
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
-  color: #3f4850;
+  font-family: "Lucida Console", monospace; /*changed*/
+  color: #fff; /*changed*/
+  background-color: #101214; /*changed*/
 }
 
 h2 {
