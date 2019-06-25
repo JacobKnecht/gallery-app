@@ -1,10 +1,11 @@
+//React import statement
 import React, { Component } from 'react';
 
 class GalleryItem extends Component {
-  //Purpose: reusable (with iteration) to display each list item and image
-  //Should be stateless component
-  //Should receive props from App component
+  //purpose: reusable (with iteration) to display each list item and image
   render() {
+    //img element should use source and alt obtained as props from
+    //Gallery component
     return (
       <li>
         <img src={this.props.source} alt={this.props.alt} />

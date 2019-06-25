@@ -1,9 +1,11 @@
+//React and React Router import statements
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 
 class SearchForm extends Component {
-  //Purpose: to display the search input and button
-  //Should contain its own local state
+  //purpose: to display the search input and button
+
+  //SearchForm component state declarations
   state = {
     searchText: '',
   }
@@ -13,6 +15,8 @@ class SearchForm extends Component {
     this.setState({ searchText: event.target.value });
   }
 
+  //passes search topic to onSearch callback (passes it back to App component)
+  //places search term into URL
   //resets search input on submission
   handleSubmit = event => {
     event.preventDefault();
@@ -23,7 +27,8 @@ class SearchForm extends Component {
 
   render() {
     return (
-      <form  className="search-form" onSubmit={this.handleSubmit}>
+      //form element receives handleSubmit callback function as onSubmit
+      <form className="search-form" onSubmit={this.handleSubmit}>
         <input
           type="search"
           name="search"
@@ -31,6 +36,7 @@ class SearchForm extends Component {
           placeholder="Search"
           ref={ (input) => this.searchTag = input }
         />
+        {/*submit button JSX*/}
         <button type="submit">
           <svg
             fill="#fff"
@@ -48,4 +54,6 @@ class SearchForm extends Component {
   }
 }
 
+//must wrap SearchForm component export in 'withRouter' so that it has access
+// to Route information and props (this.history)
 export default withRouter(SearchForm);
