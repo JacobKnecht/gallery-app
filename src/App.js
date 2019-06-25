@@ -18,11 +18,11 @@ class App extends Component {
     topic1Images : [],
     topic2Images : [],
     topic3Images : [],
+    isLoading : true,
   }
 
   componentDidMount() {
     //data for default topic categories needs to be fetched here
-    console.log('Component Did Mount');
     //topic 1 image data
     fetch(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${this.state.topic1}&extras=url_o&per_page=24&format=json&nojsoncallback=1`)
       .then(response => response.json())
@@ -38,19 +38,23 @@ class App extends Component {
       .then(response => response.json())
       .then(responseData => this.setState({ topic3Images: responseData.photos.photo }))
       .catch(error => console.log('There was an error fetching the data...'));
+    this.setState({ isLoading: false });
   }
 
   performSearch = search => {
-    console.log(search);
+    this.setState({ isLoading: true });
     fetch(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${search}&extras=url_o&per_page=24&format=json&nojsoncallback=1`)
       .then(response => response.json())
-      .then(responseData => this.setState({ images: responseData.photos.photo, searchTopic: search }))
-      .then(responseData => console.log(this.props))
+      .then(responseData => this.setState({
+        images: responseData.photos.photo,
+        searchTopic: search,
+        isLoading: false
+      }))
       .catch(error => console.log('There was an error fetching the data...'));
   }
 
   render() {
-    return (
+    return this.state.isLoading ? ( <h2>Loading...</h2> ) : (
       <BrowserRouter>
         <div className="container">
           <Header
