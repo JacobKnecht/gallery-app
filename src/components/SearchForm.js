@@ -21,7 +21,7 @@ class SearchForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.props.onSearch(this.state.searchText);
-    this.props.history.push(`/${this.searchTag.value}`);
+    this.props.history.push(`/search/${this.searchTag.value}`);
     event.currentTarget.reset();
   }
 
