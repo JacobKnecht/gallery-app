@@ -49,3 +49,7 @@ were changed to personalize the project:
 * font-family: "Lucida Console", monospace;    
 * color: #fff;  
 * background-color: #101214;  
+
+Config File - The config file, 'config.js' is a simple JavaScript file that
+stores the key for the Flickr API and exports it to the App component. It is
+located in the './src' folder.
