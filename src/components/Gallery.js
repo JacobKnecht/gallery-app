@@ -13,7 +13,7 @@ class Gallery extends Component {
       if(this.props.images.length > 0) {
         return (
             <div className="photo-container">
-              <h2>{this.props.title}</h2>
+              <h2>{this.props.title} Images</h2>
               <ul>
                 {/*create a GalleryItem component for every image*/}
                 {
